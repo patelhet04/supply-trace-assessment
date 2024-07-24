@@ -50,7 +50,7 @@
   align-items: center;
   border: 1px solid #ccc;
   border-radius: 8px;
-  height: 100%; /* Ensure it fills the container */
+  height: 100%;
   width: 100%;
 }
 
@@ -61,6 +61,9 @@
   justify-content: center;
   align-items: center;
   background-color: #f0f0f0;
+}
+.company-chart {
+  margin-top: 2rem;
 }
 
 @media (max-width: 768px) {
