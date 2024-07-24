@@ -8,7 +8,7 @@ const SearchBar = () => {
       <input
         type="text"
         id="search-input"
-        placeholder="Search..."
+        placeholder="Type company name..."
         // value={value}
         // onChange={onChange}
       />

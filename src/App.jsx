@@ -6,7 +6,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <CompanyList />,
-    children: [{ path: "/company/:id", element: <CompanyDetail /> }],
+  },
+  {
+    path: "/company/:id",
+    element: <CompanyDetail />,
   },
 ]);
 
