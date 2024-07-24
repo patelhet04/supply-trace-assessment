@@ -1,9 +1,11 @@
 from flask import Flask, request, jsonify
 from flask_restful import Api, Resource, reqparse,  marshal_with, fields
 from flask_swagger_ui import get_swaggerui_blueprint
+from flask_cors import CORS
 from services import get_all_companies, get_company_by_id, get_locations_by_company_id
 
 app = Flask(__name__)
+CORS(app)
 api = Api(app)
 
 SWAGGER_URL = '/swagger'

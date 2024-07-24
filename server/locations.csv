@@ -5,40 +5,44 @@ location_id,company_id,name,address,latitude,longitude
 4,2,GreenLeaf Main Office,"456 Sustainability Ave, Portland, OR 97201",45.5155,-122.6789
 5,2,GreenLeaf Production Facility,"101 Eco Industrial Park, Beaverton, OR 97005",45.4871,-122.8037
 6,3,Global Connections HQ,"789 International Blvd, New York, NY 10001",40.7128,-74.0060
-7,3,Global Connections EU Office,"1 European Square, London, UK",51.5074,-0.1278
-8,3,Global Connections Asia Hub,"88 Connaught Road, Hong Kong",22.2793,114.1628
-9,3,Global Connections LA Office,"555 Wilshire Blvd, Los Angeles, CA 90036",34.0622,-118.3501
-10,3,Global Connections Australia Office,"200 George St, Sydney NSW 2000, Australia",-33.8688,151.2093
-11,3,Global Connections South America Office,"Av. Paulista 1000, São Paulo, Brazil",-23.5653,-46.6541
-12,3,Global Connections Africa Office,"5th Avenue Place, Accra, Ghana",5.5560,-0.1969
-13,4,Quantum Dynamics Main Lab,"101 Particle Lane, Chicago, IL 60601",41.8781,-87.6298
-14,4,Quantum Dynamics Testing Facility,"202 Experiment Road, Batavia, IL 60510",41.8508,-88.2545
-15,5,Eco Builders Headquarters,"202 Green Street, Seattle, WA 98101",47.6062,-122.3321
+7,3,Global Connections LA Office,"555 Wilshire Blvd, Los Angeles, CA 90036",34.0622,-118.3501
+8,3,Global Connections East Coast Office,"123 Placeholder Ave, Boston, MA 02108",42.3601,-71.0589
+9,3,Global Connections West Coast Office,"456 Placeholder Road, San Francisco, CA 94105",37.7749,-122.4194
+10,4,Quantum Dynamics Main Lab,"101 Particle Lane, Chicago, IL 60601",41.8781,-87.6298
+11,4,Quantum Dynamics Testing Facility,"202 Experiment Road, Batavia, IL 60510",41.8508,-88.2545
+12,5,Eco Builders Headquarters,"202 Green Street, Seattle, WA 98101",47.6062,-122.3321
+13,5,Eco Builders Regional Office,"303 Greenway Ave, Portland, OR 97201",45.5155,-122.6789
+14,5,Eco Builders East Coast Office,"404 Greenhill Road, New York, NY 10001",40.7128,-74.0060
+15,5,Eco Builders Innovation Center,"505 Eco Lane, San Francisco, CA 94105",37.7749,-122.4194
 16,6,DataStream Analytics HQ,"303 Binary Road, Austin, TX 78701",30.2672,-97.7431
 17,6,DataStream Analytics Data Center,"404 Server Avenue, Round Rock, TX 78664",30.5083,-97.6789
-18,6,DataStream Analytics East Coast Office,"1 Data Drive, Raleigh, NC 27601",35.7796,-78.6382
-19,7,FutureWave Technologies Main Office,"404 Tomorrow Avenue, Boston, MA 02108",42.3601,-71.0589
-20,7,FutureWave Innovation Lab,"505 Discovery Lane, Cambridge, MA 02138",42.3736,-71.1097
-21,8,Vital Health Systems Headquarters,"505 Wellness Way, Los Angeles, CA 90001",34.0522,-118.2437
-22,8,Vital Health Research Center,"606 Medical Drive, Pasadena, CA 91101",34.1478,-118.1445
-23,8,Vital Health Clinic,"707 Care Street, San Diego, CA 92101",32.7157,-117.1611
-24,9,AeroSpace Innovations Main Complex,"606 Skyward Drive, Houston, TX 77002",29.7604,-95.3698
-25,10,OceanTech Research Headquarters,"707 Marine Parkway, Miami, FL 33101",25.7617,-80.1918
-26,11,MountainPeak Investments HQ,"808 Summit Street, Denver, CO 80202",39.7392,-104.9903
-27,11,MountainPeak Ski Resort Office,"909 Powder Lane, Aspen, CO 81611",39.1911,-106.8175
-28,11,MountainPeak Western Office,"1010 Rocky Road, Salt Lake City, UT 84101",40.7608,-111.8910
-29,12,UrbanCore Developments Main Office,"909 Metropolitan Ave, Atlanta, GA 30303",33.7490,-84.3880
-30,12,UrbanCore Southern Branch,"1010 Peachtree Street, Atlanta, GA 30309",33.7815,-84.3855
-31,13,SolarFlare Energy Headquarters,"1010 Sunburst Boulevard, Phoenix, AZ 85001",33.4484,-112.0740
-32,13,SolarFlare Solar Farm,"1111 Desert Sun Road, Tucson, AZ 85701",32.2226,-110.9747
-33,13,SolarFlare R&D Center,"1212 Helios Way, Albuquerque, NM 87102",35.0844,-106.6504
-34,14,CyberShield Security Main Office,"1111 Firewall Lane, Washington, DC 20001",38.9072,-77.0369
-35,15,BioGenetics Labs Headquarters,"1212 DNA Strand, Cambridge, MA 02138",42.3736,-71.1097
-36,16,RoboTech Industries Main Plant,"1313 Automation Road, Detroit, MI 48201",42.3314,-83.0458
-37,16,RoboTech Innovation Center,"1414 AI Avenue, Ann Arbor, MI 48104",42.2808,-83.7430
-38,17,AgriGrow Solutions Headquarters,"1414 Harvest Drive, Des Moines, IA 50309",41.5868,-93.6250
-39,17,AgriGrow Research Farm,"1515 Crop Circle, Ames, IA 50011",42.0308,-93.6319
-40,18,NanoMed Pharmaceuticals HQ,"1515 Molecule Street, San Diego, CA 92101",32.7157,-117.1611
-41,19,CloudPeak Software Headquarters,"1616 Cumulus Avenue, Seattle, WA 98101",47.6062,-122.3321
-42,19,CloudPeak Data Center,"1717 Server Lane, Redmond, WA 98052",47.6740,-122.1215
-43,20,EconoTrade Financial Headquarters,"1717 Commerce Circle, Charlotte, NC 28202",35.2271,-80.8431
+18,7,FutureWave Technologies Main Office,"404 Tomorrow Avenue, Boston, MA 02108",42.3601,-71.0589
+19,7,FutureWave Innovation Lab,"505 Discovery Lane, Cambridge, MA 02138",42.3736,-71.1097
+20,8,Vital Health Systems Headquarters,"505 Wellness Way, Los Angeles, CA 90001",34.0522,-118.2437
+21,8,Vital Health Research Center,"606 Medical Drive, Pasadena, CA 91101",34.1478,-118.1445
+22,9,AeroSpace Innovations Main Complex,"606 Skyward Drive, Houston, TX 77002",29.7604,-95.3698
+23,10,OceanTech Research Headquarters,"707 Marine Parkway, Miami, FL 33101",25.7617,-80.1918
+24,11,MountainPeak Investments HQ,"808 Summit Street, Denver, CO 80202",39.7392,-104.9903
+25,11,MountainPeak Ski Resort Office,"909 Powder Lane, Aspen, CO 81611",39.1911,-106.8175
+26,12,UrbanCore Developments Main Office,"909 Metropolitan Ave, Atlanta, GA 30303",33.7490,-84.3880
+27,12,UrbanCore Southern Branch,"1010 Peachtree Street, Atlanta, GA 30309",33.7815,-84.3855
+28,13,SolarFlare Energy Headquarters,"1010 Sunburst Boulevard, Phoenix, AZ 85001",33.4484,-112.0740
+29,13,SolarFlare Solar Farm,"1111 Desert Sun Road, Tucson, AZ 85701",32.2226,-110.9747
+30,14,CyberShield Security Main Office,"1111 Firewall Lane, Washington, DC 20001",38.9072,-77.0369
+31,15,BioGenetics Labs Headquarters,"1212 DNA Strand, Cambridge, MA 02138",42.3736,-71.1097
+32,16,RoboTech Industries Main Plant,"1313 Automation Road, Detroit, MI 48201",42.3314,-83.0458
+33,16,RoboTech Innovation Center,"1414 AI Avenue, Ann Arbor, MI 48104",42.2808,-83.7430
+34,17,AgriGrow Solutions Headquarters,"1414 Harvest Drive, Des Moines, IA 50309",41.5868,-93.6250
+35,17,AgriGrow Research Farm,"1515 Crop Circle, Ames, IA 50011",42.0308,-93.6319
+36,18,NanoMed Pharmaceuticals HQ,"1515 Molecule Street, San Diego, CA 92101",32.7157,-117.1611
+37,19,CloudPeak Software Headquarters,"1616 Cumulus Avenue, Seattle, WA 98101",47.6062,-122.3321
+38,19,CloudPeak Data Center,"1717 Server Lane, Redmond, WA 98052",47.6740,-122.1215
+39,20,EconoTrade Financial Headquarters,"1717 Commerce Circle, Charlotte, NC 28202",35.2271,-80.8431
+40,20,InnovateTech Solutions,"123 Tech Lane, Charlotte, NC 28201",35.2271,-80.8431
+41,20,LogiCore Technologies,"456 Data Blvd, Atlanta, GA 30301",33.7490,-84.3880
+42,20,UrbanVision Media,"789 Cityscape Dr, Miami, FL 33101",25.7617,-80.1918
+43,20,MetaGen Research,"1010 Discovery Ave, Denver, CO 80203",39.7392,-104.9903
+44,20,FinTech Partners,"2020 Market St, San Francisco, CA 94105",37.7749,-122.4194
+45,20,HealthNet Solutions,"303 Wellness Road, Seattle, WA 98101",47.6062,-122.3321
+46,20,SafeNet Security,"404 Secure Lane, Austin, TX 78701",30.2672,-97.7431
+47,20,EnviroBuild Corp,"505 Greenway, Portland, OR 97201",45.5155,-122.6789
