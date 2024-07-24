@@ -1,0 +1,23 @@
+.company-container {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr); /* Default to 4 columns */
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .company-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .company-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 479px) {
+  .company-container {
+    grid-template-columns: 1fr;
+  }
+}

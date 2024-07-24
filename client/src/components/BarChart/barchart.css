@@ -1,0 +1,19 @@
+.bar {
+  fill: #318ef1;
+  transition: fill 0.3s ease;
+}
+
+.bar:hover {
+  fill: orange;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  shape-rendering: crispEdges;
+  stroke: #000;
+}
+
+.axis text {
+  font-size: 12px;
+}
