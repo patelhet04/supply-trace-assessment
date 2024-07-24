@@ -1,7 +1,22 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
+import CompanyList from "./pages/CompanyList/CompanyList";
+import CompanyDetail from "./pages/CompanyDetail/CompanyDetail";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <CompanyList />,
+    children: [{ path: "/company/:id", element: <CompanyDetail /> }],
+  },
+]);
 
 function App() {
-  return <>Hello</>;
+  return (
+    <>
+      <RouterProvider router={router} />
+    </>
+  );
 }
 
 export default App;
