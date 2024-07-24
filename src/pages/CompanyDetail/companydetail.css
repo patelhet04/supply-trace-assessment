@@ -1,0 +1,74 @@
+.company-header {
+  font-size: 2.5rem;
+  margin-top: 1rem;
+}
+.back-btn {
+  margin-bottom: 1.4rem;
+  padding: 0.4rem;
+  border: 1px solid black;
+  border-radius: 6px;
+  font-weight: 400;
+}
+.company-details {
+  display: grid;
+  grid-template-columns: 35% 60%;
+  gap: 5%;
+  align-items: stretch;
+}
+
+.details-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  height: 100%;
+}
+
+.address,
+.locations {
+  font-size: 1rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: 100%;
+}
+
+.badge {
+  display: inline-block;
+  background-color: #318ef1;
+  color: white;
+  padding: 5px 10px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  border-radius: 6px;
+}
+
+.details-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  height: 100%; /* Ensure it fills the container */
+  width: 100%;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+}
+
+@media (max-width: 768px) {
+  .company-details {
+    grid-template-columns: 1fr;
+  }
+
+  .details-right {
+    height: 300px; /* Adjust height as needed for smaller screens */
+  }
+}
