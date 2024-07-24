@@ -12,13 +12,15 @@
 .company-card-details {
   padding: 1rem;
 }
-.company-card-details h3 {
+.company-card-details header {
   color: #000;
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
 }
 
 .company-card-details p {
   margin: 0.5rem 0 0;
   color: #666;
+  font-size: 1rem;
 }

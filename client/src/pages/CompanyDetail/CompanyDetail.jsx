@@ -1,60 +1,70 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./companydetail.css";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import CompanyMap from "../../components/CompanyMap/CompanyMap";
 import BarChart from "../../components/BarChart/BarChart";
+import { useCompanyContext } from "../../context/CompanyContext";
 const CompanyDetail = () => {
-  const position = [51.505, -0.09];
-  const locationData = [
-    { name: "Location 1", value: 10 },
-    { name: "Location 2", value: 15 },
-    { name: "Location 3", value: 8 },
-    { name: "Location 4", value: 10 },
-    { name: "Location 5", value: 15 },
-    { name: "Location 6", value: 8 },
-    { name: "Location 7", value: 10 },
-    { name: "Location 8", value: 15 },
-    { name: "Location 9", value: 8 },
-  ];
+  const { id } = useParams();
+  const { state, fetchCompany, fetchLocations } = useCompanyContext();
+  const { company, locations, loading, error } = state;
+  const renderedAddresses = new Set();
+  useEffect(() => {
+    fetchCompany(id);
+    fetchLocations(id);
+  }, [id]);
 
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error loading data</div>;
   return (
     <>
-      <Link
-        // key={company.company_id}
-        to={`/`}
-        style={{ textDecoration: "none" }}
-      >
+      <Link key={id} to={`/`} style={{ textDecoration: "none" }}>
         <button className="back-btn">Back to list</button>
       </Link>
       <header className="company-header">
-        <strong>Tech Innovators Inc.</strong>
+        <strong>{company?.name}</strong>
         <hr />
       </header>
       <div className="company-details">
         <div className="details-left">
-          <div className="address">
-            <h4>Address</h4>
-            <p>123 Tech Lane, Innovation City, USA</p>
-          </div>
-          <div className="locations">
-            <h4>Locations</h4>
-            <span className="badge">Location 1</span>
-            <span className="badge">Location 2</span>
-            <span className="badge">Location 3</span>
-            <span className="badge">Location 3</span>
-            <span className="badge">Location 3</span>
-            <span className="badge">Location 3</span>
+          <div className="info-card">
+            <div className="address">
+              <h3>Address</h3>
+              <p>{company?.address}</p>
+            </div>
+            <div className="locations">
+              <h3>Locations</h3>
+              {locations.length > 0 &&
+                locations.map((location) => {
+                  // Extract the address part to check for uniqueness
+                  const addressPart = location?.address.split(", ")[1];
+
+                  // Check if the address part has already been rendered
+                  if (addressPart && !renderedAddresses.has(addressPart)) {
+                    // Add the address part to the Set
+                    renderedAddresses.add(addressPart);
+
+                    return (
+                      <span key={location.location_id} className="badge">
+                        {addressPart}
+                      </span>
+                    );
+                  }
+
+                  // Return null if the address part is a duplicate
+                  return null;
+                })}
+            </div>
           </div>
         </div>
+
         <div className="details-right">
           <div className="map">
-            <CompanyMap position={position} />
+            <CompanyMap locations={locations} loading={loading} />
           </div>
         </div>
       </div>
-      <div className="company-chart">
-        <BarChart data={locationData} />
-      </div>
+      <div className="company-chart">{/* <BarChart /> */}</div>
     </>
   );
 };

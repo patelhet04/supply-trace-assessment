@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CompanyList from "./pages/CompanyList/CompanyList";
 import CompanyDetail from "./pages/CompanyDetail/CompanyDetail";
+import { CompanyProvider } from "./context/CompanyContext";
 
 const router = createBrowserRouter([
   {
@@ -15,9 +16,9 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <>
+    <CompanyProvider>
       <RouterProvider router={router} />
-    </>
+    </CompanyProvider>
   );
 }
 

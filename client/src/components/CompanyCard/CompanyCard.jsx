@@ -5,7 +5,7 @@ const CompanyCard = ({ companyData }) => {
   return (
     <div className="company-card">
       <div className="company-card-details">
-        <h3>{companyData.companyName}</h3>
+        <header>{companyData.name}</header>
         <p>{companyData.address}</p>
       </div>
     </div>

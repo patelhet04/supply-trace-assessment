@@ -16,20 +16,35 @@ L.Icon.Default.mergeOptions({
   shadowUrl: markerShadow,
 });
 
-const CompanyMap = ({ position }) => {
+const CompanyMap = ({ locations, loading }) => {
+  if (loading) {
+    return <div>Loading map...</div>;
+  }
+
+  if (!locations || locations.length === 0) {
+    return <div>No locations available</div>;
+  }
+
+  const center = [locations[0].latitude, locations[0].longitude];
+
   return (
     <MapContainer
-      center={position}
-      zoom={13}
+      center={center}
+      zoom={5}
       style={{ height: "100%", width: "100%" }}
     >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       />
-      <Marker position={position}>
-        <Popup>Tech Innovators Inc.</Popup>
-      </Marker>
+      {locations.map((location) => (
+        <Marker
+          key={location.location_id}
+          position={[location.latitude, location.longitude]}
+        >
+          <Popup>{location.address}</Popup>
+        </Marker>
+      ))}
     </MapContainer>
   );
 };
