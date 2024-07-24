@@ -1,0 +1,21 @@
+company_id,name,address,latitude,longitude
+1,TechNova Solutions,"123 Innovation Drive, San Francisco, CA 94105",37.7749,-122.4194
+2,GreenLeaf Enterprises,"456 Sustainability Ave, Portland, OR 97201",45.5155,-122.6789
+3,Global Connections Inc.,"789 International Blvd, New York, NY 10001",40.7128,-74.0060
+4,Quantum Dynamics,"101 Particle Lane, Chicago, IL 60601",41.8781,-87.6298
+5,Eco Builders Co.,"202 Green Street, Seattle, WA 98101",47.6062,-122.3321
+6,DataStream Analytics,"303 Binary Road, Austin, TX 78701",30.2672,-97.7431
+7,FutureWave Technologies,"404 Tomorrow Avenue, Boston, MA 02108",42.3601,-71.0589
+8,Vital Health Systems,"505 Wellness Way, Los Angeles, CA 90001",34.0522,-118.2437
+9,AeroSpace Innovations,"606 Skyward Drive, Houston, TX 77002",29.7604,-95.3698
+10,OceanTech Research,"707 Marine Parkway, Miami, FL 33101",25.7617,-80.1918
+11,MountainPeak Investments,"808 Summit Street, Denver, CO 80202",39.7392,-104.9903
+12,UrbanCore Developments,"909 Metropolitan Ave, Atlanta, GA 30303",33.7490,-84.3880
+13,SolarFlare Energy,"1010 Sunburst Boulevard, Phoenix, AZ 85001",33.4484,-112.0740
+14,CyberShield Security,"1111 Firewall Lane, Washington, DC 20001",38.9072,-77.0369
+15,BioGenetics Labs,"1212 DNA Strand, Cambridge, MA 02138",42.3736,-71.1097
+16,RoboTech Industries,"1313 Automation Road, Detroit, MI 48201",42.3314,-83.0458
+17,AgriGrow Solutions,"1414 Harvest Drive, Des Moines, IA 50309",41.5868,-93.6250
+18,NanoMed Pharmaceuticals,"1515 Molecule Street, San Diego, CA 92101",32.7157,-117.1611
+19,CloudPeak Software,"1616 Cumulus Avenue, Seattle, WA 98101",47.6062,-122.3321
+20,EconoTrade Financial,"1717 Commerce Circle, Charlotte, NC 28202",35.2271,-80.8431
