@@ -13,7 +13,7 @@ const CompanyList = () => {
   return (
     <>
       <h1>Browse Companies</h1>
-      <SearchBar />
+      <SearchBar onSearch={fetchCompanies} />
       <div className="company-container">
         {companies.map((company) => (
           <Link

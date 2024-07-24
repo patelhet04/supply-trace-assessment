@@ -1,4 +1,10 @@
-import React, { createContext, useReducer, useContext, useEffect } from "react";
+import React, {
+  createContext,
+  useReducer,
+  useContext,
+  useEffect,
+  useCallback,
+} from "react";
 import axios from "axios";
 
 const CompanyContext = createContext();
@@ -39,16 +45,20 @@ const companyReducer = (state, action) => {
 export const CompanyProvider = ({ children }) => {
   const [state, dispatch] = useReducer(companyReducer, initialState);
 
-  const fetchCompanies = async () => {
+  // Function to fetch companies with optional search query
+  const fetchCompanies = useCallback(async (searchQuery = "") => {
     dispatch({ type: "FETCH_COMPANIES_REQUEST" });
     try {
-      const response = await axios.get("http://127.0.0.1:5000/companies");
+      const response = await axios.get("http://127.0.0.1:5000/companies", {
+        params: { search: searchQuery },
+      });
       dispatch({ type: "FETCH_COMPANIES_SUCCESS", payload: response.data });
     } catch (error) {
       dispatch({ type: "FETCH_COMPANIES_FAILURE", payload: error.message });
     }
-  };
+  }, []);
 
+  // Function to fetch company by ID
   const fetchCompany = async (companyId) => {
     dispatch({ type: "FETCH_COMPANY_REQUEST" });
     try {
@@ -61,6 +71,7 @@ export const CompanyProvider = ({ children }) => {
     }
   };
 
+  // Function to fetch locations for a company
   const fetchLocations = async (companyId) => {
     dispatch({ type: "FETCH_LOCATIONS_REQUEST" });
     try {

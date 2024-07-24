@@ -1,7 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./searchbar.css";
 
-const SearchBar = () => {
+const SearchBar = ({ onSearch }) => {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      onSearch(searchQuery);
+    }, 500); // Delay in milliseconds
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [searchQuery, onSearch]);
+
   return (
     <div className="search-bar">
       <label htmlFor="search-input">Search</label>
@@ -9,8 +25,8 @@ const SearchBar = () => {
         type="text"
         id="search-input"
         placeholder="Type company name..."
-        // value={value}
-        // onChange={onChange}
+        value={searchQuery}
+        onChange={handleChange}
       />
     </div>
   );
