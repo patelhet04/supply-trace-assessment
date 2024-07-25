@@ -1,0 +1,23 @@
+# Ignore the .git directory
+.git
+
+# Ignore IDE/editor configuration files
+.vscode/
+.idea/
+
+# Ignore virtual environments
+venv/
+__pycache__/
+
+# Ignore node modules if any (unlikely for a Python server, but just in case)
+node_modules/
+
+# Ignore local environment configuration files
+.env
+.env.local
+
+# Ignore any OS-specific hidden files (e.g., macOS)
+.DS_Store
+
+# Ignore any log files
+*.log
