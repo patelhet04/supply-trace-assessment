@@ -111,7 +111,7 @@ server/
    pytest -v
    ```
 
-The API will be available at http://localhost:5000 by default.
+The API will be available at http://localhost:5001 by default.
 
 ### Key Features
 
@@ -120,7 +120,7 @@ The API will be available at http://localhost:5000 by default.
 3. **Utility Functions**: Common utilities and helper functions in utils.py, mainly logger
 4. **CSV Data Integration**: Incorporates data from companies.csv and locations.csv.
 5. **Docker Support**: Includes `Dockerfile` for containerization.
-6. **Swagger UI Doccumentation**: Provides Swagger documentation for API reference. Accessible at [http://localhost:5000/swagger](http://localhost:5000/swagger).
+6. **Swagger UI Doccumentation**: Provides Swagger documentation for API reference. Accessible at [http://localhost:5001/swagger](http://localhost:5001/swagger).
 7. **Unit Testing**: Utlized pytest for unit testing for REST APIs.
 
 ## Running the Application Using Docker Compose
