@@ -18,7 +18,6 @@ client/
 │   ├── index.css
 │   └── main.jsx
 ├── .dockerignore
-├── .env
 ├── .eslintrc.cjs
 ├── .gitignore
 ├── Dockerfile
