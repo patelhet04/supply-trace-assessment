@@ -34,6 +34,10 @@ company_fields = {
     'longitude': fields.Float
 }
 
+class HelloWorld(Resource):
+    def get(self):
+        return {'message': 'Hello'}
+
 class CompanyList(Resource):
     def get(self):
         try:
@@ -77,6 +81,8 @@ class CompanyLocations(Resource):
             return locations
         return {'error': 'No locations found for this company'}, 404
 
+
+api.add_resource(HelloWorld, '/')
 api.add_resource(CompanyList, '/companies')
 api.add_resource(CompanyDetail, '/company/<int:company_id>')
 api.add_resource(CompanyLocations, '/company/<int:company_id>/locations')
