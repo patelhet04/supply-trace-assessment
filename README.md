@@ -30,7 +30,7 @@ client/
 
 ### Installation
 
-1. Ensure you have Node.js installed on your system.
+1. Ensure you have Node.js installed on your system [https://nodejs.org/en](https://nodejs.org/en/download/package-manager).
 
 2. Clone this repository:
    ```bash
