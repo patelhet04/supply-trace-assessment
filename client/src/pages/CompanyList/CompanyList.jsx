@@ -1,15 +1,26 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import CompanyCard from "../../components/CompanyCard/CompanyCard";
 import "./companylist.css";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import { Link } from "react-router-dom";
 import { useCompanyContext } from "../../context/CompanyContext";
+
 const CompanyList = () => {
   const { state, fetchCompanies } = useCompanyContext();
   const { companies, loading, error } = state;
+  const [initialFetchDone, setInitialFetchDone] = useState(false);
+
   useEffect(() => {
-    fetchCompanies();
-  }, []);
+    if (!initialFetchDone) {
+      fetchCompanies();
+      setInitialFetchDone(true);
+    }
+  }, [fetchCompanies, initialFetchDone]);
+
+  if (!initialFetchDone) return <div>Loading...</div>;
+
+  if (error) return <div>Error loading data: {error}</div>;
+
   return (
     <>
       <h1>Browse Companies</h1>

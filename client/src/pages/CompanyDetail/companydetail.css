@@ -5,7 +5,9 @@
 
 .company-header {
   font-size: 2.5rem;
-  margin-top: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-weight: bold;
 }
 
 .back-btn {
@@ -14,6 +16,7 @@
   border: 1px solid black;
   border-radius: 6px;
   font-weight: 400;
+  text-decoration: none;
 }
 
 .company-details {

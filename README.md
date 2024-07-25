@@ -55,7 +55,7 @@ client/
 5. **Context API**: Uses React's Context API (in the `context` directory) for state management.
 6. **Routing**: Utilizes React Router DOM for efficient and declarative routing in the application.
 7. **Docker Support**: Includes `Dockerfile` for containerization.
-8. **Environment Variables**: Uses `.env` file for configuration.
+8. **Debounce for Search**: Implements the debounce concept for optimizing search query performance.
 
 ## Backend: Flask API
 

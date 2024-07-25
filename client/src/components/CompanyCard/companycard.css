@@ -24,3 +24,12 @@
   color: #666;
   font-size: 1rem;
 }
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .company-card-details header {
+    font-size: 1rem;
+  }
+  .company-card-details p {
+    font-size: 0.9rem;
+  }
+}

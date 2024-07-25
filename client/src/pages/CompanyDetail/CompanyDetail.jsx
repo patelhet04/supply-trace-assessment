@@ -1,77 +1,100 @@
-import React, { useEffect } from "react";
-import "./companydetail.css";
+import React, { useEffect, useMemo } from "react";
+import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import CompanyMap from "../../components/CompanyMap/CompanyMap";
 import { useCompanyContext } from "../../context/CompanyContext";
 import LocationPieChart from "../../components/Charts/PieChart";
 import LocationBarChart from "../../components/Charts/LocatoionBarChart";
+import "./companydetail.css";
 
 const CompanyDetail = () => {
+  // Extract company ID from URL parameters
   const { id } = useParams();
+
+  // Access company context for state and actions
   const { state, fetchCompany, fetchLocations } = useCompanyContext();
   const { company, locations, loading, error } = state;
-  const renderedAddresses = new Set();
+
+  // Fetch company details and locations when component mounts or ID changes
   useEffect(() => {
     fetchCompany(id);
     fetchLocations(id);
-  }, [id]);
+  }, [id, fetchCompany, fetchLocations]);
 
+  // Memoize unique locations to prevent unnecessary re-renders
+  const uniqueLocations = useMemo(() => {
+    const renderedAddresses = new Set();
+    return locations.filter((location) => {
+      const addressPart = location?.address.split(", ")[1];
+      if (addressPart && !renderedAddresses.has(addressPart)) {
+        renderedAddresses.add(addressPart);
+        return true;
+      }
+      return false;
+    });
+  }, [locations]);
+
+  // Show loading state
   if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error loading data</div>;
+
+  // Show error state
+  if (error) return <div>Error loading data: {error}</div>;
+
   return (
-    <>
-      <Link key={id} to={`/`} style={{ textDecoration: "none" }}>
-        <button className="back-btn">Back to list</button>
+    <article>
+      {/* Navigation back to company list */}
+      <Link to="/" className="back-btn">
+        Back to list
       </Link>
+
+      {/* Company name header */}
       <header className="company-header">
-        <strong>{company?.name}</strong>
-        <hr />
+        {company?.name} <hr />
       </header>
-      <div className="company-details">
+
+      <section className="company-details">
         <div className="details-left">
           <div className="info-card">
+            {/* Company address */}
             <div className="address">
               <h3>Address</h3>
               <p>{company?.address}</p>
             </div>
+
+            {/* Unique company locations */}
             <div className="locations">
               <h3>Locations</h3>
-              {locations.length > 0 &&
-                locations.map((location) => {
-                  // Extract the address part to check for uniqueness
-                  const addressPart = location?.address.split(", ")[1];
-
-                  // Check if the address part has already been rendered
-                  if (addressPart && !renderedAddresses.has(addressPart)) {
-                    // Add the address part to the Set
-                    renderedAddresses.add(addressPart);
-
-                    return (
-                      <span key={location.location_id} className="badge">
-                        {addressPart}
-                      </span>
-                    );
-                  }
-
-                  // Return null if the address part is a duplicate
-                  return null;
-                })}
+              {uniqueLocations.length > 0 ? (
+                uniqueLocations.map((location) => (
+                  <span key={location.location_id} className="badge">
+                    {location.address.split(", ")[1]}
+                  </span>
+                ))
+              ) : (
+                <p>No locations available</p>
+              )}
             </div>
           </div>
         </div>
 
+        {/* Company locations map */}
         <div className="details-right">
-          <div className="map">
-            <CompanyMap locations={locations} loading={loading} />
-          </div>
+          <CompanyMap locations={locations} loading={loading} />
         </div>
-      </div>
-      <div className="company-chart">
+      </section>
+
+      {/* Charts for location data visualization */}
+      <section className="company-chart">
         <LocationPieChart locations={locations} />
         <LocationBarChart locations={locations} />
-      </div>
-    </>
+      </section>
+    </article>
   );
+};
+
+// PropTypes for type checking
+CompanyDetail.propTypes = {
+  id: PropTypes.string.isRequired,
 };
 
 export default CompanyDetail;
