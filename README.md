@@ -61,6 +61,7 @@ client/
 6. **Routing**: Utilizes React Router DOM for efficient and declarative routing in the application.
 7. **Docker Support**: Includes `Dockerfile` for containerization.
 8. **Debounce for Search**: Implements the debounce concept for optimizing search query performance.
+9. **Unit Testing**: Utlized Jest and React Testing library for unit testing.
 
 ## Backend: Flask API
 
@@ -121,6 +122,7 @@ The API will be available at http://localhost:5000 by default.
 4. **CSV Data Integration**: Incorporates data from companies.csv and locations.csv.
 5. **Docker Support**: Includes `Dockerfile` for containerization.
 6. **Swagger UI Doccumentation**: Provides Swagger documentation for API reference. Accessible at [http://localhost:5000/swagger](http://localhost:5000/swagger).
+7. **Unit Testing**: Utlized pytest for unit testing for REST APIs.
 
 ## Running the Application Using Docker Compose
 
