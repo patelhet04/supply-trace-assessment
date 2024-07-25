@@ -1,6 +1,7 @@
 import React from "react";
 import { BarChart } from "@mui/x-charts/BarChart";
 import "./charts.css";
+import ResponsiveChart from "./ResponsiveChart";
 const LocationBarChart = ({ locations }) => {
   // Process the data to get employee count by state for each company
   const companyStateData = locations.reduce((acc, location) => {
@@ -35,11 +36,15 @@ const LocationBarChart = ({ locations }) => {
   return (
     <div className="chart-container">
       <h2>Employee Distribution by State</h2>
-      <BarChart
-        width={700}
-        height={300}
-        series={series}
-        xAxis={[{ data: states, scaleType: "band", label: "State" }]}
+      <ResponsiveChart
+        render={({ width, height }) => (
+          <BarChart
+            width={width}
+            height={height}
+            series={series}
+            xAxis={[{ data: states, scaleType: "band", label: "State" }]}
+          />
+        )}
       />
     </div>
   );

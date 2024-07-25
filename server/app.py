@@ -5,7 +5,7 @@ from flask_cors import CORS
 from services import get_all_companies, get_company_by_id, get_locations_by_company_id
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
 api = Api(app)
 
 SWAGGER_URL = '/swagger'
@@ -82,4 +82,4 @@ api.add_resource(CompanyDetail, '/company/<int:company_id>')
 api.add_resource(CompanyLocations, '/company/<int:company_id>/locations')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5001)

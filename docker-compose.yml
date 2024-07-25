@@ -14,7 +14,7 @@ services:
       - "5173:5173"
     # Set environment variables
     environment:
-      - VITE_API_URL=http://127.0.0.1:5000
+      - VITE_API_URL=http://localhost:5001
     # Sync changes between the local filesystem and the container
     volumes:
       - ./client:/app # Ensure this matches your frontend directory
@@ -28,7 +28,7 @@ services:
 
     # Define the port mapping
     ports:
-      - "5000:5000"
+      - "5001:5000"
 
     environment:
       - FLASK_ENV=development

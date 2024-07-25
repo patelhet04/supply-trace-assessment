@@ -1,6 +1,8 @@
 // PieChart.js
 import React from "react";
 import { PieChart } from "@mui/x-charts/PieChart";
+import { useMediaQuery, useTheme } from "@mui/material";
+import ResponsiveChart from "./ResponsiveChart";
 
 const LocationPieChart = ({ locations }) => {
   const getRegion = (state) => {
@@ -78,18 +80,42 @@ const LocationPieChart = ({ locations }) => {
   return (
     <div className="chart-container">
       <h2>Locations by Region</h2>
-      <PieChart
-        series={[
-          {
-            data: pieData,
-            highlightScope: { faded: "global", highlighted: "item" },
-            faded: { innerRadius: 30, additionalRadius: -30 },
-          },
-        ]}
-        width={500}
-        height={300}
-        innerRadius={50}
-        outerRadius={100}
+      <ResponsiveChart
+        render={({ width, height }) => (
+          <PieChart
+            className="custom-legend"
+            series={[
+              {
+                data: pieData,
+                highlightScope: { faded: "global", highlighted: "item" },
+                faded: {
+                  innerRadius: width * 0.06,
+                  additionalRadius: -width * 0.06,
+                },
+              },
+            ]}
+            width={width}
+            height={height}
+            innerRadius={width * 0.1}
+            outerRadius={width * 0.2}
+            margin={{ top: 20, right: 150, bottom: 20, left: 20 }}
+            slotProps={{
+              legend: {
+                direction: "column",
+                position: { vertical: "middle", horizontal: "right" },
+                padding: { left: 0, right: 0, top: 0, bottom: 0 },
+                itemMarkWidth: 20,
+                itemMarkHeight: 20,
+                markGap: 5,
+                itemGap: 10,
+                labelStyle: {
+                  fontSize: 14,
+                  fill: "#000",
+                },
+              },
+            }}
+          />
+        )}
       />
     </div>
   );

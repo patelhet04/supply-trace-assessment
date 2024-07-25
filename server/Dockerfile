@@ -16,4 +16,4 @@ COPY . .
 EXPOSE 5000
 
 # Specify the command to run on container start
-CMD ["python", "app.py"]
+CMD ["flask", "run", "--host", "0.0.0.0"]
