@@ -2,8 +2,10 @@ import React, { useEffect } from "react";
 import "./companydetail.css";
 import { Link, useParams } from "react-router-dom";
 import CompanyMap from "../../components/CompanyMap/CompanyMap";
-import BarChart from "../../components/BarChart/BarChart";
 import { useCompanyContext } from "../../context/CompanyContext";
+import LocationPieChart from "../../components/Charts/PieChart";
+import LocationBarChart from "../../components/Charts/LocatoionBarChart";
+
 const CompanyDetail = () => {
   const { id } = useParams();
   const { state, fetchCompany, fetchLocations } = useCompanyContext();
@@ -64,7 +66,10 @@ const CompanyDetail = () => {
           </div>
         </div>
       </div>
-      <div className="company-chart">{/* <BarChart /> */}</div>
+      {/* <div className="company-chart">
+        <LocationPieChart locations={locations} />
+        <LocationBarChart locations={locations} />
+      </div> */}
     </>
   );
 };

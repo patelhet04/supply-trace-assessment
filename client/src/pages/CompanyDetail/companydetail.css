@@ -13,8 +13,8 @@
 
 .company-details {
   display: grid;
-  grid-template-columns: 35% 60%;
-  gap: 5%;
+  grid-template-columns: 35% 63%;
+  gap: 2%;
   align-items: stretch;
 }
 
@@ -27,7 +27,6 @@
 .info-card {
   display: flex;
   flex-direction: column;
-  /* gap: 1rem; */
   padding: 2rem;
   border: 1px solid #ccc;
   border-radius: 6px;
@@ -70,9 +69,12 @@
   background-color: #f0f0f0;
 }
 
-.company-chart {
+/* .company-chart {
   margin-top: 2rem;
-}
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+} */
 
 @media (max-width: 768px) {
   .company-details {

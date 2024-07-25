@@ -30,7 +30,7 @@ const CompanyMap = ({ locations, loading }) => {
   return (
     <MapContainer
       center={center}
-      zoom={5}
+      zoom={4}
       style={{ height: "100%", width: "100%" }}
     >
       <TileLayer
