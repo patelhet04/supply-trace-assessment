@@ -10,7 +10,10 @@ import PropTypes from "prop-types";
 
 const CompanyContext = createContext();
 
-const apiUrl = import.meta.env.VITE_API_URL;
+const apiUrl =
+  typeof importMeta !== "undefined"
+    ? importMeta.env.VITE_API_URL
+    : "http://localhost:5001";
 
 const initialState = {
   companies: [],
