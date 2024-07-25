@@ -9,6 +9,8 @@ import axios from "axios";
 
 const CompanyContext = createContext();
 
+const apiUrl = import.meta.env.VITE_API_URL;
+
 const initialState = {
   companies: [],
   company: null,
@@ -49,7 +51,7 @@ export const CompanyProvider = ({ children }) => {
   const fetchCompanies = useCallback(async (searchQuery = "") => {
     dispatch({ type: "FETCH_COMPANIES_REQUEST" });
     try {
-      const response = await axios.get("http://127.0.0.1:5000/companies", {
+      const response = await axios.get(apiUrl + "/companies", {
         params: { search: searchQuery },
       });
       dispatch({ type: "FETCH_COMPANIES_SUCCESS", payload: response.data });
@@ -62,9 +64,7 @@ export const CompanyProvider = ({ children }) => {
   const fetchCompany = async (companyId) => {
     dispatch({ type: "FETCH_COMPANY_REQUEST" });
     try {
-      const response = await axios.get(
-        `http://127.0.0.1:5000/company/${companyId}`
-      );
+      const response = await axios.get(apiUrl + `/company/${companyId}`);
       dispatch({ type: "FETCH_COMPANY_SUCCESS", payload: response.data });
     } catch (error) {
       dispatch({ type: "FETCH_COMPANY_FAILURE", payload: error.message });
@@ -76,7 +76,7 @@ export const CompanyProvider = ({ children }) => {
     dispatch({ type: "FETCH_LOCATIONS_REQUEST" });
     try {
       const response = await axios.get(
-        `http://127.0.0.1:5000/company/${companyId}/locations`
+        apiUrl + `/company/${companyId}/locations`
       );
       dispatch({ type: "FETCH_LOCATIONS_SUCCESS", payload: response.data });
     } catch (error) {

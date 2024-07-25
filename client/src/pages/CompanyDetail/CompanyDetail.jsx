@@ -66,10 +66,10 @@ const CompanyDetail = () => {
           </div>
         </div>
       </div>
-      {/* <div className="company-chart">
+      <div className="company-chart">
         <LocationPieChart locations={locations} />
         <LocationBarChart locations={locations} />
-      </div> */}
+      </div>
     </>
   );
 };

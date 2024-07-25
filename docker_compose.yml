@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+  web:
+    # Specify that the web service depends on the api service
+    depends_on:
+      - api
+    # Define the build context for the frontend (React) application
+    build:
+      context: ./client # Ensure this matches your frontend directory
+      dockerfile: Dockerfile
+    # Define the port mapping
+    ports:
+      - "5173:5173"
+    # Set environment variables
+    environment:
+      - VITE_API_URL=http://127.0.0.1:5000
+    # Sync changes between the local filesystem and the container
+    volumes:
+      - ./client:/app # Ensure this matches your frontend directory
+      - /app/node_modules # Avoid syncing node_modules
+
+  api:
+    # Define the build context for the backend (Flask) application
+    build:
+      context: ./server # Ensure this matches your backend directory
+      dockerfile: Dockerfile
+
+    # Define the port mapping
+    ports:
+      - "5000:5000"
+
+    environment:
+      - FLASK_ENV=development
+    # Sync changes between the local filesystem and the container
+    volumes:
+      - ./server:/app # Ensure this matches your backend directory
+      - /app/venv # Avoid syncing virtual environment
