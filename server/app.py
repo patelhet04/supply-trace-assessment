@@ -23,7 +23,8 @@ location_fields = {
     'location_id': fields.Integer,
     'address': fields.String,
     'latitude': fields.Float,
-    'longitude': fields.Float
+    'longitude': fields.Float,
+    'employees':fields.Integer
 }
 company_fields = {
     'company_id': fields.Integer,
