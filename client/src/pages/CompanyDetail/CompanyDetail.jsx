@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import CompanyMap from "../../components/CompanyMap/CompanyMap";
 import { useCompanyContext } from "../../context/CompanyContext";
 import LocationPieChart from "../../components/Charts/PieChart";
-import LocationBarChart from "../../components/Charts/LocatoionBarChart";
+import LocationBarChart from "../../components/Charts/LocationBarChart";
 import "./companydetail.css";
 
 const CompanyDetail = () => {
