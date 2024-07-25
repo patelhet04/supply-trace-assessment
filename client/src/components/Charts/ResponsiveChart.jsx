@@ -1,124 +1,50 @@
-// PieChart.js
-import React from "react";
-import { PieChart } from "@mui/x-charts/PieChart";
-import { useMediaQuery, useTheme } from "@mui/material";
-import ResponsiveChart from "./ResponsiveChart";
+import React, { useRef, useState, useEffect } from "react";
 
-const LocationPieChart = ({ locations }) => {
-  const getRegion = (state) => {
-    const regions = {
-      "West Coast": ["CA", "OR", "WA"],
-      Mountain: ["MT", "ID", "WY", "NV", "UT", "CO", "AZ", "NM"],
-      Southwest: ["TX", "OK", "AZ", "NM"],
-      Midwest: [
-        "ND",
-        "SD",
-        "NE",
-        "KS",
-        "MN",
-        "IA",
-        "MO",
-        "WI",
-        "IL",
-        "IN",
-        "MI",
-        "OH",
-      ],
-      Southeast: [
-        "AR",
-        "LA",
-        "MS",
-        "AL",
-        "GA",
-        "FL",
-        "SC",
-        "NC",
-        "VA",
-        "WV",
-        "KY",
-        "TN",
-      ],
-      Northeast: [
-        "ME",
-        "NH",
-        "VT",
-        "MA",
-        "RI",
-        "CT",
-        "NY",
-        "PA",
-        "NJ",
-        "DE",
-        "MD",
-        "DC",
-      ],
-      Alaska: ["AK"],
-      Hawaii: ["HI"],
-    };
+// The ResponsiveChart component is designed to adjust its dimensions
+// based on the size of its container and render a chart or other
+// content accordingly.
+const ResponsiveChart = ({ render }) => {
+  // Ref to store a reference to the container div
+  const containerRef = useRef(null);
 
-    for (const [region, states] of Object.entries(regions)) {
-      if (states.includes(state)) {
-        return region;
-      }
+  // State to store the current dimensions of the container
+  const [dimensions, setDimensions] = useState({ width: 300, height: 200 });
+
+  useEffect(() => {
+    // Create a ResizeObserver to monitor changes in the container's size
+    const resizeObserver = new ResizeObserver((entries) => {
+      // If there are no entries or entries are undefined, return early
+      if (!entries || !entries.length) return;
+
+      // Get the new width from the ResizeObserver entries
+      const { width } = entries[0].contentRect;
+
+      // Update the dimensions state with the new width and computed height
+      setDimensions({
+        width: width,
+        height: width * 0.6, // Assuming a 3:5 aspect ratio
+      });
+    });
+
+    // Start observing the container element if it exists
+    if (containerRef.current) {
+      resizeObserver.observe(containerRef.current);
     }
-    return "Other";
-  };
 
-  const regionCounts = locations.reduce((acc, location) => {
-    const state = location.address.split(", ")[2].split(" ")[0];
-    const region = getRegion(state);
-    acc[region] = (acc[region] || 0) + 1;
-    return acc;
-  }, {});
-
-  const pieData = Object.entries(regionCounts).map(([region, count]) => ({
-    id: region,
-    value: count,
-    label: region,
-  }));
+    // Cleanup function to unobserve the container element when the component unmounts
+    return () => {
+      if (containerRef.current) {
+        resizeObserver.unobserve(containerRef.current);
+      }
+    };
+  }, []); // Empty dependency array ensures this effect runs only once after the initial render
 
   return (
-    <div className="chart-container">
-      <h2>Locations by Region</h2>
-      <ResponsiveChart
-        render={({ width, height }) => (
-          <PieChart
-            className="custom-legend"
-            series={[
-              {
-                data: pieData,
-                highlightScope: { faded: "global", highlighted: "item" },
-                faded: {
-                  innerRadius: width * 0.06,
-                  additionalRadius: -width * 0.06,
-                },
-              },
-            ]}
-            width={width}
-            height={height}
-            innerRadius={width * 0.1}
-            outerRadius={width * 0.2}
-            margin={{ top: 20, right: 150, bottom: 20, left: 20 }}
-            slotProps={{
-              legend: {
-                direction: "column",
-                position: { vertical: "middle", horizontal: "right" },
-                padding: { left: 0, right: 0, top: 0, bottom: 0 },
-                itemMarkWidth: 20,
-                itemMarkHeight: 20,
-                markGap: 5,
-                itemGap: 10,
-                labelStyle: {
-                  fontSize: 14,
-                  fill: "#000",
-                },
-              },
-            }}
-          />
-        )}
-      />
+    <div ref={containerRef} style={{ width: "100%", height: "auto" }}>
+      {/* Render the chart or content based on the current dimensions */}
+      {render(dimensions)}
     </div>
   );
 };
 
-export default LocationPieChart;
+export default ResponsiveChart;
