@@ -45,6 +45,11 @@ client/
    ```bash
    npm run dev
    ```
+5. To test the components using jest and react-testing library, run:
+   ```bash
+   npm test -- --clearCache
+   npm test
+   ```
 
 ### Key Features
 
@@ -67,6 +72,8 @@ server/
 ├── static/
 │   ├── swagger.json/
 ├── venv/
+├── tests/
+│   ├── test_app.py
 ├── .dockerignore
 ├── .gitignore
 ├── app.py
@@ -98,6 +105,10 @@ server/
 4. To start the Flask development server, run:
    ```bask
    python app.py
+   ```
+5. To test the APIs, run:
+   ```bask
+   pytest -v
    ```
 
 The API will be available at http://localhost:5000 by default.
